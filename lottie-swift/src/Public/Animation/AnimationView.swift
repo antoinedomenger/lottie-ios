@@ -269,7 +269,7 @@ final public class AnimationView: LottieView {
    
    - Parameter completion: An optional completion closure to be called when the animation completes playing.
    */
-  public func play(completion: LottieCompletionBlock? = nil) {
+  @objc public func play(completion: LottieCompletionBlock? = nil) {
     guard let animation = animation else {
       return
     }
@@ -380,7 +380,7 @@ final public class AnimationView: LottieView {
    
    The completion closure will be called with `false`
    */
-  public func stop() {
+  @objc public func stop() {
     removeCurrentAnimation()
     currentFrame = 0
     CATransaction.flush()
@@ -391,7 +391,7 @@ final public class AnimationView: LottieView {
    
    The completion closure will be called with `false`
    */
-  public func pause() {
+  @objc public func pause() {
     removeCurrentAnimation()
   }
   
@@ -611,7 +611,7 @@ final public class AnimationView: LottieView {
     }
   }
   
-  public init() {
+  @objc public init() {
     self.animation = nil
     self.imageProvider = BundleImageProvider(bundle: Bundle.main, searchPath: nil)
     self.textProvider = DefaultTextProvider()
@@ -620,7 +620,7 @@ final public class AnimationView: LottieView {
     commonInit()
   }
   
-  public override init(frame: CGRect) {
+  @objc public override init(frame: CGRect) {
     self.animation = nil
     self.imageProvider = BundleImageProvider(bundle: Bundle.main, searchPath: nil)
     self.textProvider = DefaultTextProvider()
@@ -629,7 +629,7 @@ final public class AnimationView: LottieView {
     commonInit()
   }
   
-  required public init?(coder aDecoder: NSCoder) {
+  @objc required public init?(coder aDecoder: NSCoder) {
     self.imageProvider = BundleImageProvider(bundle: Bundle.main, searchPath: nil)
     self.textProvider = DefaultTextProvider()
     self.fontProvider = DefaultFontProvider()

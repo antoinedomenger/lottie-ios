@@ -8,6 +8,13 @@
 import Foundation
 
 public extension AnimationView {
+
+    @objc convenience init(name: String,
+                           bundle: Bundle = Bundle.main) {
+      let animation = Animation.named(name, bundle: bundle, subdirectory: nil, animationCache: nil)
+      let provider = BundleImageProvider(bundle: bundle, searchPath: nil)
+      self.init(animation: animation, imageProvider: provider)
+    }
   
   /**
    Loads a Lottie animation from a JSON file in the supplied bundle.
